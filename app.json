@@ -1,0 +1,31 @@
+{
+  "pages":[
+    "pages/home/home",
+    "pages/message/message",
+    "pages/contact/contact",
+    "pages/components/games/game_2048/game_2048"
+  ],
+  "window":{
+    "backgroundTextStyle":"light",
+    "navigationBarBackgroundColor": "#2b4b6b",
+    "navigationBarTitleText": "九九",
+    "navigationBarTextStyle":"white"
+  },
+  "tabBar": {
+      "list": [{
+        "pagePath": "pages/home/home",
+        "text": "首页"
+      },
+      {
+        "pagePath": "pages/message/message",
+        "text": "首页"
+      },
+      {
+        "pagePath": "pages/contact/contact",
+        "text": "首页"
+      }
+    ]
+  },
+  "style": "v2",
+  "sitemapLocation": "sitemap.json"
+}

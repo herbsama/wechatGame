@@ -1,0 +1,61 @@
+<!--pages/components/games/game_2048.wxml-->
+
+<view class="container {{win || fail || getPrice?'mask': ''}}" >
+    <view class="score">
+        <view class="left">
+            <view style="text-align: center;height: 100%;line-height: 100%;color: rgb(24, 199, 100);padding: 5rpx;" wx:if="{{bestScore == 1024}}">
+                <view style="padding: 90rpx 0 5rpx 0 ">哎哟不错哦</view>
+                <view style="padding: 5rpx;">能达到1024了</view>
+                <view style="padding: 5rpx;">加油</view>
+            </view>
+            <view style="text-align: center;color: rgb(252, 154, 88);" wx:elif="{{bestScore == 2048}}">
+                <view style="padding: 90rpx 0 5rpx 0 ">加油哦2048</view>
+                <view style="padding: 5rpx;">你离奖品只差一步了</view>
+                <view style="padding: 5rpx;">冲鸭！！！！</view>
+            </view>
+            <view wx:elif="{{bestScore == 4096}}">1</view>
+        </view>
+        <view class="right">
+            <view class="currentscore">
+                <view style="{{curScore >= 1024? 'color: rgb(252, 154, 88);': ''}}">SCORE</view>
+                <view style="{{curScore >= 1024? 'color: rgb(252, 154, 88);': ''}}">{{curScore}}</view>
+            </view>
+            <view class="bestscore">
+                <view style="{{bestScore == 2048? 'color: rgb(252, 154, 88);': ''}}">BEST</view>
+                <view style="{{bestScore == 2048? 'color: rgb(252, 154, 88);': ''}}">{{bestScore}}</view>
+            </view>
+        </view> 
+    </view>
+    <view class="main">
+        <view class="bigbox" bindtouchstart="touchStart" bindtouchend="touchEnd">
+                <view class="boxs" wx:for="{{data}}" wx:key="index">
+                    <view class="box" wx:for="{{item}}" wx:key="index">
+                        <view class="br20 number_{{item}}">{{item}}</view>
+                    </view>
+                </view>
+        </view> 
+    </view>
+
+    <view class="showMsg" wx:if="{{win || fail|| getPrice}}">
+        <view class="message">
+            <view class="winner" wx:if="{{win}}">
+                <view style="padding: 15px;padding-bottom: 200rpx;">恭喜你，达到了2048</view>
+                <button class="continue" type="primary" size="mini" bindtap="continue">继续</button>
+                <view style="font-size: 30rpx;color:rgb(240, 6, 6);">达到4096可以领取奖励哦</view>
+            </view>
+
+            <view class="failure" wx:if="{{fail}}">
+                <view style="padding: 15px;padding-bottom: 200rpx;">恭喜你，你寄了</view>
+                <button class="continue" type="primary" size="mini" bindtap="init">重新开始</button>
+            </view>
+
+            <view wx:if="{{getPrice}}">
+                <view style="padding: 15px;padding-bottom: 100rpx;color: red;">恭喜你，联系管理员拿奖品吧</view>
+                <text  selectable="true" style="display: inline-block;margin: 0 auto;padding-bottom: 100rpx;">H891O9H7kj12h4d8</text>
+                <button class="continue" type="primary" size="mini" bindtap="continuePrice">已截屏，继续</button>
+            </view>
+        </view>
+    </view>
+</view>
+
+

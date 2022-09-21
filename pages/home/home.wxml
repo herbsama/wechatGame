@@ -1,0 +1,7 @@
+<!--pages/home/home.wxml-->
+<view bindtap="goto2048">2048</view>
+<swiper indicator-dots>
+    <swiper-item wx:for="{{swiperList}}" wx:key="id">
+        <view>{{item.img}}</view>
+    </swiper-item>
+</swiper>
