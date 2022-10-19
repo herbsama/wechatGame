@@ -22,25 +22,19 @@ Page({
         //       console.log(res);
         //   }
         // })
-        setTimeout(() => {
-            this.setData({
-                swiperList: [{
-                    id:1,img:'图片1'
-                },{
-                    id:2,img:'图片2'
-                },{
-                    id:3,img:'图片3'
-                },{
-                    id:4,img:'图片4'
-                }]
-            })
-        }, 3000);
+        return new Promise((resolve, reject)=>{
+            setTimeout(() => {
+                resolve('11')
+            }, 3000);
+        })
     },
     /**
      * 生命周期函数--监听页面加载
      */
     onLoad(options) {
-        this.getSwiperList()
+        this.getSwiperList().then(res =>{
+            console.log(res);
+        })
     },
 
     /**

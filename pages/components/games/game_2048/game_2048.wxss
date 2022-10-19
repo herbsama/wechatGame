@@ -90,7 +90,6 @@
     justify-content: center;
     border-radius: 20rpx;
     line-height: 140rpx;
-    animation: 5s;
 }
 .number_null{
     display: none;
